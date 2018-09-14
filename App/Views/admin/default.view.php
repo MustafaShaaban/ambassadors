@@ -3,10 +3,5 @@
  * Created by PhpStorm.
  * User: Mustafa Shaaban
  * Date: 9/14/2018
- * Time: 8:03 PM
+ * Time: 8:06 PM
  */
-
-namespace PHPMVC\CONTROLLER;
-class Databasehandler {
-
-}

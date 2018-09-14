@@ -6,6 +6,7 @@
  * Time: 8:03 PM
  */
 
-class databasemodel {
+namespace PHPMVC\MODELS;
+class Databasemodel {
 
 }
