@@ -6,7 +6,7 @@
  * Time: 8:31 PM
  */
 
-namespace PHPMVC\CONTROLLER;
+namespace PHPMVC\CONTROLLERS;
 
 class Abstractclass {
 

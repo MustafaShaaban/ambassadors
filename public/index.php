@@ -13,5 +13,4 @@ include '../App/Config/config.php';
 include APP_PATH . DS . 'Core' . DS . 'autoload.php';
 
 $frontController = new Frontcontroller();
-
-echo "INDEX";
+$frontController->dispatch();

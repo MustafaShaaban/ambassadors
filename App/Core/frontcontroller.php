@@ -10,6 +10,9 @@ namespace PHPMVC\CORE;
 
 class Frontcontroller {
 
+//	const NOT_FOUND_CLASS = 'PHPMVC\CONTROLLERS\NotFoundController';
+//	const NOT_FOUND_ACTION = 'notFoundAction';
+
 	/**
 	 * The name of controller class.
 	 *
@@ -38,6 +41,14 @@ class Frontcontroller {
 	private $_param = [];
 
 	/**
+	 * Set class properties by calling _parseUrl method
+	 */
+	public function __construct() {
+		$this->_parseUrl();
+	}
+
+
+	/**
 	 * Separate URL path
 	 */
 	private function _parseUrl() {
@@ -54,16 +65,24 @@ class Frontcontroller {
 	}
 
 
-	/**
-	 * @return string
-	 */
-	public function __construct() {
-	}
-	
+
+
 	/**
 	 * dispatching methods
 	 */
 	public function dispatch() {
+		$controllerClassName = 'PHPMVC\CONTROLLERS\\' . ucfirst($this->_controller) . 'Controller';
+		if (!class_exists($controllerClassName)) {
+			$controllerClassName = 'PHPMVC\CONTROLLERS\NotFoundController';
+		}
+		$controller = new $controllerClassName;
+		$actionName = lcfirst($this->_action) . 'Action';
 
+		if (!method_exists($controller, $actionName)) {
+			$actionName = 'notFoundAction';
+		}
+		$controller->$actionName();
+		echo "<br>" . $controllerClassName . "</br>";
+		echo $actionName;
 	}
 }
